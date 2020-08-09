@@ -30,7 +30,7 @@ https://fabiensanglard.net/polygon_codec/clippingdocument/Clipping.pdf: this is 
 
 https://www.geometrictools.com/Documentation/ClipMesh.pdf: a computer graphics oriented document, with in-depth explanations and pseudo-code.
 
-In the end, I settled with a very simple (and not so efficient) implementation, the important part is in GMesh.gd, function _clip_with_plane.
+In the end, I settled with a very simple (and not so efficient) implementation, the important part is in [GMesh.gd](./GMesh.gd), function _clip_with_plane.
 
 First, all the vertices from the original polyhedron lying below the plane are vertices of the clipped polyhedron, so they are added to an Array, and a mapping between old and new vertex indexes is made.
 
@@ -98,7 +98,7 @@ When the object is on a wave, the local surface is not horizontal (while we keep
 "pushed up" more then the other side. The object is not only tilted, but is also pushed a bit away from the wave. All this can be obtained simply 
 using the normal to the plane when applying the buoyancy force, but not always. When the object is totally covered by water, the orientation of the water
 plane doesn't matter: the force goes always up. So in the end the force is applied using a vector interpolated between the plane normal and the up vector,
-based on the fraction of the object below the water. All this is calculated in FloatingBody.gd, fucntion `apply_buoyancy`.
+based on the fraction of the object below the water. All this is calculated in [FloatingBody.gd](./FloatingBody.gd), fucntion `apply_buoyancy`.
 
 ## The application
 
@@ -106,9 +106,9 @@ To show all this in action, the application allows to switch between different s
 
 A few debugging features are present: a green plane showing the local water surface and a yellow triangle (well, a narrow prism) pointing to the calculated centroid.
 
-Rendering the shape below the water can be activated: this is implemented in the file GMeshInstance.gd. The water wave can alse be hidden, to allow a better view of the reference plane
+Rendering the shape below the water can be activated: this is implemented in the file [GMeshInstance.gd](./GMeshInstance.gd). The water wave can alse be hidden, to allow a better view of the reference plane
 and the buoyancy mesh. 
 
-Using the nice DebugDraw https://github.com/RBerezkin/Test_DebugDraw/, viewing some vectors (plane normal, up vector, interpolated normal, buoyancy force).
+Using the nice DebugDraw https://github.com/RBerezkin/Test_DebugDraw/, there's an option to enable viewing some vectors (plane normal, up vector, interpolated normal, buoyancy force).
 
 
