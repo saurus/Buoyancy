@@ -1,0 +1,91 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://GMeshInstance.gd" type="Script" id=1]
+[ext_resource path="res://FloatingBody.gd" type="Script" id=2]
+[ext_resource path="res://objects/FloatingObject.gd" type="Script" id=3]
+
+
+
+
+[sub_resource type="PrismMesh" id=1]
+size = Vector3( 3, 2, 4 )
+
+[sub_resource type="ConvexPolygonShape" id=2]
+points = PoolVector3Array( 0, 1, 2, 0, 1, -2, 0, 1, 2, 0, 1, -2, -1.5, -1, 2, 1.5, -1, -2, 1.5, -1, 2, -1.5, -1, -2, 0, 1, 2, 0, 1, -2, 0, 1, -2, 0, 1, 2, 1.5, -1, 2, -1.5, -1, -2, 1.5, -1, -2, -1.5, -1, 2, -1.5, -1, 2, 1.5, -1, 2, -1.5, -1, -2, 1.5, -1, -2 )
+
+[sub_resource type="CubeMesh" id=3]
+size = Vector3( 3, 0.2, 3 )
+
+[sub_resource type="ConvexPolygonShape" id=4]
+points = PoolVector3Array( -1.5, 0.1, 1.5, 1.5, 0.1, -1.5, 1.5, 0.1, 1.5, -1.5, 0.1, -1.5, -1.5, -0.1, 1.5, 1.5, -0.1, -1.5, 1.5, -0.1, 1.5, -1.5, -0.1, -1.5, 1.5, 0.1, 1.5, -1.5, 0.1, -1.5, 1.5, 0.1, -1.5, -1.5, 0.1, 1.5, 1.5, -0.1, 1.5, -1.5, -0.1, -1.5, 1.5, -0.1, -1.5, -1.5, -0.1, 1.5, 1.5, 0.1, 1.5, -1.5, -0.1, 1.5, -1.5, 0.1, 1.5, 1.5, -0.1, 1.5, 1.5, 0.1, -1.5, -1.5, -0.1, -1.5, -1.5, 0.1, -1.5, 1.5, -0.1, -1.5 )
+
+[node name="Spatial" type="Spatial"]
+script = ExtResource( 3 )
+
+[node name="Left" type="RigidBody" parent="."]
+transform = Transform( -1, 3.25841e-07, 0, -3.25841e-07, -1, 0, 0, 0, 1, -3, 0, 0 )
+mass = 10.0
+script = ExtResource( 2 )
+
+[node name="DebugLabel" type="Label" parent="Left"]
+margin_left = 789.733
+margin_top = 151.597
+margin_right = 829.733
+margin_bottom = 165.597
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GMeshInstance" type="MeshInstance" parent="Left"]
+mesh = SubResource( 1 )
+material/0 = null
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Left"]
+shape = SubResource( 2 )
+
+[node name="Right" type="RigidBody" parent="."]
+transform = Transform( -1, 3.25841e-07, 0, -3.25841e-07, -1, 0, 0, 0, 1, 3, 0, 0 )
+mass = 10.0
+script = ExtResource( 2 )
+
+[node name="DebugLabel" type="Label" parent="Right"]
+margin_left = 789.733
+margin_top = 151.597
+margin_right = 829.733
+margin_bottom = 165.597
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GMeshInstance" type="MeshInstance" parent="Right"]
+mesh = SubResource( 1 )
+material/0 = null
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Right"]
+shape = SubResource( 2 )
+
+[node name="Bridge" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Bridge"]
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Bridge"]
+shape = SubResource( 4 )
+
+[node name="HingeJointLeft" type="HingeJoint" parent="."]
+nodes/node_a = NodePath("../Left")
+nodes/node_b = NodePath("../Bridge")
+angular_limit/enable = true
+angular_limit/upper = 1.0
+angular_limit/lower = -1.0
+
+[node name="HingeJointRight" type="HingeJoint" parent="."]
+nodes/node_a = NodePath("../Right")
+nodes/node_b = NodePath("../Bridge")
+angular_limit/enable = true
+angular_limit/upper = 1.0
+angular_limit/lower = -1.0

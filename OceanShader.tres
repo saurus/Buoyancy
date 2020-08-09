@@ -1,0 +1,35 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=2]
+
+[ext_resource path="res://OceanShader.cubemap" type="CubeMap" id=1]
+[ext_resource path="res://OceanShader.shader" type="Shader" id=2]
+
+[sub_resource type="StreamTexture" id=1]
+flags = 7
+load_path = "res://.import/noise_tileable.png-86c7bbd88c367ea4bfd90b5cc356d90b.s3tc.stex"
+
+[resource]
+shader = ExtResource( 2 )
+shader_param/amplitude0 = Plane( 0.200852, 0.491174, 0.188325, 0.452353 )
+shader_param/steepness0 = Plane( 0.00708726, 0.000187142, 0.00231873, 0.00542255 )
+shader_param/wind_directionX0 = Plane( 0.651304, -0.214037, 0.740117, -0.659951 )
+shader_param/wind_directionY0 = Plane( 0.758817, 0.976826, 0.672478, 0.751308 )
+shader_param/frequency0 = Plane( 0.113021, 0.0722736, 0.11672, 0.0753111 )
+shader_param/amplitude1 = Plane( 0.370103, 0.262391, 0.299745, 0.305846 )
+shader_param/steepness1 = Plane( 0.000753702, 0.000430103, 0.00936286, 0.00549798 )
+shader_param/wind_directionX1 = Plane( 0.938538, -0.44265, 0.999457, 0.320955 )
+shader_param/wind_directionY1 = Plane( -0.345175, -0.896694, 0.0329382, 0.947094 )
+shader_param/frequency1 = Plane( 0.0832599, 0.0988833, 0.0925169, 0.0915895 )
+shader_param/amplitude2 = Plane( 0.341257, 0.180761, 0.38407, 0.419438 )
+shader_param/steepness2 = Plane( 0.000954035, 0.00616253, 0.00936515, 0.00360766 )
+shader_param/wind_directionX2 = Plane( 0.600975, 0.421797, -0.936744, -0.93389 )
+shader_param/wind_directionY2 = Plane( -0.799268, -0.90669, -0.350016, -0.357561 )
+shader_param/frequency2 = Plane( 0.0867074, 0.119137, 0.081732, 0.0782102 )
+shader_param/waves_vectors = 3
+shader_param/noise_amplitude = 0.286
+shader_param/noise_frequency = 0.065
+shader_param/noise_speed = 0.48
+shader_param/water_color = Color( 0, 0.153839, 0.277344, 1 )
+shader_param/project_bias = 1.121
+shader_param/time_offset = 28527.2
+shader_param/noise = SubResource( 1 )
+shader_param/environment = ExtResource( 1 )

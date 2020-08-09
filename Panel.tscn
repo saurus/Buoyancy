@@ -1,0 +1,282 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://OceanEditor.gd" type="Script" id=1]
+
+[node name="Panel" type="Panel"]
+anchor_bottom = 1.0
+margin_right = 240.0
+margin_bottom = -23.0
+rect_min_size = Vector2( 240, 170 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Settings" type="VBoxContainer" parent="."]
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 10.0
+margin_right = 200.0
+margin_bottom = -10.0
+rect_min_size = Vector2( 200, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Settings"]
+margin_right = 200.0
+margin_bottom = 99.0
+text = "move with:
+    wheel button: look around
+	    right button: translate
+ESC: reset position
+W/S: move near/far
+Home/End: apply lateral force"
+
+[node name="Amplitude" type="HBoxContainer" parent="Settings"]
+margin_top = 103.0
+margin_right = 200.0
+margin_bottom = 119.0
+
+[node name="Label" type="Label" parent="Settings/Amplitude"]
+margin_top = 1.0
+margin_right = 67.0
+margin_bottom = 15.0
+text = "Amplitude"
+
+[node name="HSlider" type="HSlider" parent="Settings/Amplitude"]
+margin_left = 71.0
+margin_right = 200.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.001
+
+[node name="Wavelength" type="HBoxContainer" parent="Settings"]
+margin_top = 123.0
+margin_right = 200.0
+margin_bottom = 139.0
+
+[node name="Label" type="Label" parent="Settings/Wavelength"]
+margin_top = 1.0
+margin_right = 75.0
+margin_bottom = 15.0
+text = "Wavelength"
+
+[node name="HSlider" type="HSlider" parent="Settings/Wavelength"]
+margin_left = 79.0
+margin_right = 200.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+min_value = 20.0
+max_value = 128.0
+step = 0.01
+value = 60.0
+
+[node name="Steepness" type="HBoxContainer" parent="Settings"]
+margin_top = 143.0
+margin_right = 200.0
+margin_bottom = 159.0
+
+[node name="Label" type="Label" parent="Settings/Steepness"]
+margin_top = 1.0
+margin_right = 66.0
+margin_bottom = 15.0
+text = "Steepness"
+
+[node name="HSlider" type="HSlider" parent="Settings/Steepness"]
+margin_left = 70.0
+margin_right = 200.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.001
+value = 0.025
+
+[node name="WindDirectionX" type="HBoxContainer" parent="Settings"]
+margin_top = 163.0
+margin_right = 200.0
+margin_bottom = 179.0
+
+[node name="Label" type="Label" parent="Settings/WindDirectionX"]
+margin_top = 1.0
+margin_right = 100.0
+margin_bottom = 15.0
+text = "WindDirectionX"
+
+[node name="HSlider" type="HSlider" parent="Settings/WindDirectionX"]
+margin_left = 104.0
+margin_right = 200.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+min_value = -1.0
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="WindDirectionY" type="HBoxContainer" parent="Settings"]
+margin_top = 183.0
+margin_right = 200.0
+margin_bottom = 199.0
+
+[node name="Label" type="Label" parent="Settings/WindDirectionY"]
+margin_top = 1.0
+margin_right = 99.0
+margin_bottom = 15.0
+text = "WindDirectionY"
+
+[node name="HSlider" type="HSlider" parent="Settings/WindDirectionY"]
+margin_left = 103.0
+margin_right = 200.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+min_value = -1.0
+max_value = 1.0
+step = 0.001
+
+[node name="WindAlign" type="HBoxContainer" parent="Settings"]
+margin_top = 203.0
+margin_right = 200.0
+margin_bottom = 219.0
+
+[node name="Label" type="Label" parent="Settings/WindAlign"]
+margin_top = 1.0
+margin_right = 65.0
+margin_bottom = 15.0
+text = "WindAlign"
+
+[node name="HSlider" type="HSlider" parent="Settings/WindAlign"]
+margin_left = 69.0
+margin_right = 200.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.001
+
+[node name="Speed" type="HBoxContainer" parent="Settings"]
+margin_top = 223.0
+margin_right = 200.0
+margin_bottom = 239.0
+
+[node name="Label" type="Label" parent="Settings/Speed"]
+margin_top = 1.0
+margin_right = 39.0
+margin_bottom = 15.0
+text = "Speed"
+
+[node name="HSlider" type="HSlider" parent="Settings/Speed"]
+margin_left = 43.0
+margin_right = 200.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+max_value = 40.0
+step = 0.001
+value = 10.0
+
+[node name="NoiseAmp" type="HBoxContainer" parent="Settings"]
+margin_top = 243.0
+margin_right = 200.0
+margin_bottom = 259.0
+
+[node name="Label" type="Label" parent="Settings/NoiseAmp"]
+margin_top = 1.0
+margin_right = 71.0
+margin_bottom = 15.0
+text = "Noise Amp"
+
+[node name="HSlider" type="HSlider" parent="Settings/NoiseAmp"]
+margin_left = 75.0
+margin_right = 200.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.001
+value = 0.28
+
+[node name="NoiseFreq" type="HBoxContainer" parent="Settings"]
+margin_top = 263.0
+margin_right = 200.0
+margin_bottom = 279.0
+
+[node name="Label" type="Label" parent="Settings/NoiseFreq"]
+margin_top = 1.0
+margin_right = 69.0
+margin_bottom = 15.0
+text = "Noise Freq"
+
+[node name="HSlider" type="HSlider" parent="Settings/NoiseFreq"]
+margin_left = 73.0
+margin_right = 200.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.01
+value = 0.07
+
+[node name="NoiseSpeed" type="HBoxContainer" parent="Settings"]
+margin_top = 283.0
+margin_right = 200.0
+margin_bottom = 299.0
+
+[node name="Label" type="Label" parent="Settings/NoiseSpeed"]
+margin_top = 1.0
+margin_right = 80.0
+margin_bottom = 15.0
+text = "Noise Speed"
+
+[node name="HSlider" type="HSlider" parent="Settings/NoiseSpeed"]
+margin_left = 84.0
+margin_right = 200.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.01
+value = 0.5
+
+[node name="HSeparator" type="HSeparator" parent="Settings"]
+margin_top = 303.0
+margin_right = 200.0
+margin_bottom = 307.0
+
+[node name="bViewSea" type="CheckBox" parent="Settings"]
+margin_top = 311.0
+margin_right = 200.0
+margin_bottom = 335.0
+pressed = true
+text = "View Sea"
+
+[node name="bViewBuoyancy" type="CheckBox" parent="Settings"]
+margin_top = 339.0
+margin_right = 200.0
+margin_bottom = 363.0
+text = "View Buoyancy Mesh"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bViewDraw" type="CheckBox" parent="Settings"]
+margin_top = 367.0
+margin_right = 200.0
+margin_bottom = 391.0
+text = "View Vectors"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator2" type="HSeparator" parent="Settings"]
+margin_top = 395.0
+margin_right = 200.0
+margin_bottom = 399.0
+[connection signal="value_changed" from="Settings/Amplitude/HSlider" to="." method="_on_amplitude_changed"]
+[connection signal="value_changed" from="Settings/Wavelength/HSlider" to="." method="_on_wavelength_changed"]
+[connection signal="value_changed" from="Settings/Steepness/HSlider" to="." method="_on_stepness_changed"]
+[connection signal="value_changed" from="Settings/WindDirectionX/HSlider" to="." method="_on_windX_changed"]
+[connection signal="value_changed" from="Settings/WindDirectionY/HSlider" to="." method="_on_windY_changed"]
+[connection signal="value_changed" from="Settings/WindAlign/HSlider" to="." method="_on_windalign_changed"]
+[connection signal="value_changed" from="Settings/Speed/HSlider" to="." method="_on_speed_changed"]
+[connection signal="value_changed" from="Settings/NoiseAmp/HSlider" to="." method="_on_noise_amp_changed"]
+[connection signal="value_changed" from="Settings/NoiseFreq/HSlider" to="." method="_on_noise_freq_changed"]
+[connection signal="value_changed" from="Settings/NoiseSpeed/HSlider" to="." method="_on_noise_speed_changed"]
+[connection signal="toggled" from="Settings/bViewSea" to="." method="_on_bViewSea_toggled"]
+[connection signal="toggled" from="Settings/bViewBuoyancy" to="." method="_on_bViewBuoyancy_toggled"]
+[connection signal="toggled" from="Settings/bViewDraw" to="." method="_on_bViewBuoyancy_toggled"]

@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://GMeshInstance.gd" type="Script" id=1]
+[ext_resource path="res://FloatingBody.gd" type="Script" id=2]
+[ext_resource path="res://objects/FloatingObject.gd" type="Script" id=3]
+
+
+
+
+[sub_resource type="CylinderShape" id=1]
+height = 2.07612
+
+[sub_resource type="CylinderMesh" id=2]
+radial_segments = 8
+rings = 2
+
+[node name="Spatial" type="Spatial"]
+script = ExtResource( 3 )
+
+[node name="RigidBody" type="RigidBody" parent="."]
+mass = 10.2041
+script = ExtResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="RigidBody"]
+shape = SubResource( 1 )
+
+[node name="GMeshInstance" type="MeshInstance" parent="RigidBody"]
+mesh = SubResource( 2 )
+material/0 = null
+script = ExtResource( 1 )
