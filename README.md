@@ -98,7 +98,7 @@ When the object is on a wave, the local surface is not horizontal (while we keep
 "pushed up" more then the other side. The object is not only tilted, but is also pushed a bit away from the wave. All this can be obtained simply 
 using the normal to the plane when applying the buoyancy force, but not always. When the object is totally covered by water, the orientation of the water
 plane doesn't matter: the force goes always up. So in the end the force is applied using a vector interpolated between the plane normal and the up vector,
-based on the fraction of the object below the water. All this is calculated in [FloatingBody.gd](./FloatingBody.gd), fucntion `apply_buoyancy`.
+based on the fraction of the object below the water. All this is calculated in [FloatingBody.gd](./FloatingBody.gd), function `apply_buoyancy`.
 
 ## The application
 
@@ -106,9 +106,14 @@ To show all this in action, the application allows to switch between different s
 
 A few debugging features are present: a green plane showing the local water surface and a yellow triangle (well, a narrow prism) pointing to the calculated centroid.
 
-Rendering the shape below the water can be activated: this is implemented in the file [GMeshInstance.gd](./GMeshInstance.gd). The water wave can alse be hidden, to allow a better view of the reference plane
-and the buoyancy mesh. 
+Rendering the shape below the water can be activated: this is implemented in the file [GMeshInstance.gd](./GMeshInstance.gd). The water wave can alse be hidden, 
+to allow a better view of the reference plane and the buoyancy mesh. 
 
 Using the nice DebugDraw https://github.com/RBerezkin/Test_DebugDraw/, there's an option to enable viewing some vectors (plane normal, up vector, interpolated normal, buoyancy force).
 
 
+## Next Steps
+
+The final effect is good, but not perfect: the main source of nuisance ist the unrealistic drag. I try to account for the different drag of air and water (see [FloatingBody.gd](./FloatingBody.gd), function `_integrate_forces`, where I try to calculate an interpolated damp value), but the linear function is not even slightly good, because draw is not dependent on volume, but on the surface moving against the water, just try moving your open hand on the water with the palm first, and then with a cutting-like movement, to see the difference.
+
+To fix this, using the damp functions in Godot is not enough, as the drag depends on the object's position and movement's direction.
