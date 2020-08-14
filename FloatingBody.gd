@@ -6,7 +6,7 @@ var dbg : Label
 var ref_plane_marker
 var buoyancy_point_marker
 onready var buoyancy_mesh := $GMeshInstance
-export(int, 1, 10000000) var buoyancy_factor := 50
+export(int, 1, 10000000) var buoyancy_factor := 98
 
 const SEA_PLANE_EPSILON := 0.5
 const DAMP_AIR := 0.7
@@ -153,7 +153,7 @@ func apply_buoyancy(normal: Vector3, centroidVolume: GMesh.GCentroidVolume) -> v
 		dd.add_vector(Vector3.ZERO, p2, 0.1, Color.blue, true)
 		p2 = global_transform.basis.xform_inv(dscale*Vector3.UP)
 		dd.add_vector(Vector3.ZERO, p2, 0.05, Color(0,1,0,0.5), true)
-		p2 = global_transform.basis.xform_inv(bforce)
+		p2 = global_transform.basis.xform_inv(10.0*bforce/(full_volume*buoyancy_factor))
 		dd.add_vector(Vector3.ZERO, p2, 0.1, Color(1,1,1,0.7), true)
 #	var pos := point + Vector3(global_transform.origin.x, 0, global_transform.origin.z)
 
